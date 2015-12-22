@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration debug="true" xmlns:log4j="http://jakarta.apache.org/log4j/" >
+	
+	<!-- Configuration des appenders -->
+
+
+	<!-- declaration de la sortie standard -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out"/>
+		<param name="Threshold" value="INFO"/> 
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p - %c{1} : %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="file" class="org.apache.log4j.RollingFileAppender">
+	    <param name="append" value="false" />
+	    <param name="maxFileSize" value="10MB" />
+	    <param name="maxBackupIndex" value="10" />
+	    <param name="file" value="log/myApp.log" />
+	    <layout class="org.apache.log4j.PatternLayout">
+		<param name="ConversionPattern" 
+			value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+	    </layout>
+	    <filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="LevelMax" value="FATAL" />
+		</filter>
+	</appender>
+
+	<!-- déclare le fichier de log de l'application -->
+<!-- 	<appender name="logApplicatives" class="org.apache.log4j.RollingFileAppender">
+		<param name="file" value="c:/smpTest.log"/>
+		<param name="MaxFileSize" value="2MB"/>
+		<param name="DatePattern" value="'_'yyyy-MM-dd"/>
+		<param name="Append" value="true"/>
+     	<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p - %c{1} : %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="LevelMax" value="FATAL" />
+		</filter>
+	</appender>
+	
+		<appender name="logGenerales" class="org.apache.log4j.RollingFileAppender">
+		<param name="file" value="c:/smpTestAll.log"/>
+		<param name="MaxFileSize" value="2MB"/>
+		<param name="DatePattern" value="'_'yyyy-MM-dd"/>
+		<param name="Append" value="true"/>
+     	<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p - %c{1} : %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="LevelMax" value="FATAL" />
+		</filter>
+	</appender>
+	
+	
+	Configuration des logger
+	<logger name="com.eiffage">
+		<appender-ref ref="logApplicatives"/>
+	</logger>
+	<logger name="com.eiffage.socle">
+		<appender-ref ref="logApplicatives"/>
+	</logger>
+	
+		 -->
+	<!-- Configuration du logger racine -->
+	<root>
+		<level value="DEBUG"></level>
+		<!-- <appender-ref ref="logGenerales"/> -->
+		<appender-ref ref="console"/>
+		<appender-ref ref="file"/>
+		
+		
+	</root>
+
+	
+	
+</log4j:configuration>

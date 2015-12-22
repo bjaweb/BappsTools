@@ -1,0 +1,11 @@
+utilisateur: !!com.bja.bapps.tools.core.test.bean.Utilisateur
+ id: 9999
+ nom: JANVION
+ prenom: bernardo
+ email: bernard.janvion.ext@eiffage.com
+ region: !!com.bja.bapps.tools.core.test.bean.Region
+  idRegion: 9998
+  libelleRegion: picardie
+  adresse: clos Charlemagne Verberie
+ validationDate: 2011-06-20 00:00:00 +2
+

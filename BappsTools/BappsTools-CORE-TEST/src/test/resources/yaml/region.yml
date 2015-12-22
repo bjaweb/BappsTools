@@ -1,0 +1,11 @@
+typeGroupe: !!com.eiffage.pdp.pojo.Region
+ idRegion: 9999
+ libelleRegion: picardie
+ archive: true
+ adresse1: 3
+ adresse2: rue du four
+ adresse3: 99225 
+ adresse4: Pierrex
+ adresse5: France
+ siege: true
+ 

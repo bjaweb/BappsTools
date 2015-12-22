@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.bja.bapps.tools</groupId>
+		<artifactId>BappsTools</artifactId>
+		<version>2.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>BappsTools-SECURITY</artifactId>
+	<name>BappsTools-SECURITY</name>
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.bja.bapps.tools</groupId>
+			<artifactId>BappsTools-CORE</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.api.client</groupId>
+			<artifactId>google-api-client-repackaged-com-google-common-base</artifactId>
+			<version>1.2.3-alpha</version>
+
+		</dependency>
+
+				
+		<dependency>
+			<groupId>com.bja.bapps.tools</groupId>
+			<artifactId>BappsTools-SECURITY-TEST</artifactId>
+		</dependency>
+		
+		
+			<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk16</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpg-jdk16</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-ext-jdk16</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcmail-jdk16</artifactId>
+		</dependency>
+		
+		
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>			
+		</dependency>
+ 
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>			
+		</dependency>
+		
+		<!-- Spring Security JSP Taglib -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>			
+		</dependency>
+		
+	</dependencies>
+</project>
