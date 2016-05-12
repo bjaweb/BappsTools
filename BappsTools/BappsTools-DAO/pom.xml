@@ -37,10 +37,15 @@
 		
 		
 		
-		
+		<!-- Connection pool gestion -->
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-jdbc</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.jolbox</groupId>
+			<artifactId>bonecp-provider</artifactId>		
 		</dependency>
 		
 		
