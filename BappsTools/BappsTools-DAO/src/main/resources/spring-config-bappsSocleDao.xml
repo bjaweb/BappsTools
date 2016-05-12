@@ -33,30 +33,58 @@
         <property name="dataSource" ref="dataSource" />
         
         <property name="jpaVendorAdapter">
-            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" >
-            	<property name="showSql" value="true" />
+            <bean id="jpaAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" >
+            	<!-- <property name="showSql" value="true" /> -->
+            	<!-- obligation de declarer db.hibernate.show_sql dans un properties placeHolder -->
+            	<!-- <property name="showSql" value="${db.hibernate.show_sql}" />  -->
 				<property name="generateDdl" value="true" />
-				<!-- <property name="databasePlatform" value="${db.dialect}" /> -->
-            </bean>
+				<!-- <property name="databasePlatform" value="org.hibernate.dialect.HSQLDialect"/> -->				
+				 <property name="databasePlatform" value="${db.dialect}"/> 
+           </bean>
             
         </property>        
+        
+   <!--      fonctionne mais mais les valeurs seront les memes pour tous les projets qui utilisent l'appli
+       <property name="jpaProperties">
+            <props>
+                 <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+         -->
+        
+        <!-- le fichier  jpaProperties.properties doit être present dans le projet appellant -->
+        <property name="jpaProperties" ref="jpaProperties1"/>
+        
+        <!-- commenté car ça ne marche pas -->
+        <!-- <property name="jpaProperties" value="classpath:/jpaProperties1.properties"/> -->
+        
         
         <!-- fonctionne avec le package com.bja.bapps : scanne le fichier persistence.xml -->
         <property name="packagesToScan" value="com.bja.bapps"/>
         
-        <!-- le fichier  jpaProperties.properties doit être present dans Iwel -->
-        <property name="jpaProperties" value="classpath:/jpaProperties.properties"/>
-        
     </bean>
+    
+    
+    <bean id="jpaProperties1"
+      class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+  <property name="locations">
+    <list>
+       <value>classpath*:jpaProperties1.properties</value> <!-- ici les valeurs par defauts commune à toutes les applis -->
+       <value>classpath:/jpaProperties.properties</value>  <!-- ici valeurs spécifiques pour l'appli -->
+    </list>
+  </property>
+</bean>
  
   
-  <!-- le gestionnaire de transactions --> 
+  <!-- le gestionnaire de transactions pour que @transactional soit pris en compte dans le metier --> 
   <tx:annotation-driven transaction-manager="txManager" /> 
+  
   <bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager"> 
     <property name="entityManagerFactory" ref="entityManagerFactory" /> 
   </bean> 
  
-  <!-- traduction des exceptions --> 
+  <!-- traduction des exceptions en exception JPA en exception DAO : valable pour lesclasse annoter @repository--> 
   <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" /> 
  
   <!-- persistence --> 
