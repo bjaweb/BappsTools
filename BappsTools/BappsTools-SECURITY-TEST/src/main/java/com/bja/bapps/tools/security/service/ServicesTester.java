@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import com.bja.bapps.tools.core.testTools.ContextLoader;
+//import com.bja.bapps.tools.core.testTools.ContextLoader;
 import com.bja.bapps.tools.core.testTools.pojos.DatabaseInformationForTest;
 
 
 public class ServicesTester {
-	public ContextLoader contextLoader;
+//	public ContextLoader contextLoader;
 
 	public DatabaseInformationForTest databaseInformation;
 
@@ -31,9 +31,9 @@ public class ServicesTester {
 				null
 		);
 
-		contextLoader = new ContextLoader(
-				databaseInformation, 
-				properties.getProperty("appliContexte")
-		);
+//		contextLoader = new ContextLoader(
+//				databaseInformation, 
+//				properties.getProperty("appliContexte")
+//		);
 	}
 }
