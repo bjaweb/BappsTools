@@ -18,14 +18,14 @@
 			<artifactId>commons-io</artifactId>
 		</dependency>
 
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
-		</dependency>
-	    <dependency>
+		</dependency> -->
+	   <!--  <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-		</dependency>
+		</dependency> -->
 		 
 
 		<dependency>
@@ -49,4 +49,7 @@
 		</dependency>
 
 	</dependencies>
+	
+	
+	
 </project>
