@@ -11,14 +11,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import com.bja.bapps.tools.core.testTools.pojos.DatabaseInformationForTest;
 
 public class ContextLoader implements IContextLoader {
 
-	public static ApplicationContext context;
+//	public static ApplicationContext context;
 
 	private String [] springConfigFiles;
 
@@ -76,18 +73,18 @@ public class ContextLoader implements IContextLoader {
 		return fileContent.toString();
 	}
 
-	public ApplicationContext getContext() throws IOException, ClassNotFoundException, SQLException {
-		if (context == null) {
-			if (databasesInformationForTest != null) {
-				for (DatabaseInformationForTest databaseInformationForTest : databasesInformationForTest) {
-					if (databaseInformationForTest.getSchemeFile() != null) {
-						generateDatabase(databaseInformationForTest);
-					}
-				}
-			}
-			context = new ClassPathXmlApplicationContext(springConfigFiles);
-		}
-		return context;
-	}
+//	public ApplicationContext getContext() throws IOException, ClassNotFoundException, SQLException {
+//		if (context == null) {
+//			if (databasesInformationForTest != null) {
+//				for (DatabaseInformationForTest databaseInformationForTest : databasesInformationForTest) {
+//					if (databaseInformationForTest.getSchemeFile() != null) {
+//						generateDatabase(databaseInformationForTest);
+//					}
+//				}
+//			}
+//			context = new ClassPathXmlApplicationContext(springConfigFiles);
+//		}
+//		return context;
+//	}
 
 }
